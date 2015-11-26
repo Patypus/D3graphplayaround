@@ -1,4 +1,4 @@
-var data = {[
+var data = [
     {
         Planet: "Mercury",
         Atmosphere: [
@@ -13,7 +13,7 @@ var data = {[
         Planet: "Venus",
         Atmosphere: [
             { Gas: "Carbon Dioxide",  Percent: 95.5 },
-            { Gas: "Nitrogen",  Percent: 3,5 },
+            { Gas: "Nitrogen",  Percent: 3.5 },
 			{ Gas: "Other",  Percent: 1 },
         ]
     },
@@ -81,6 +81,5 @@ var data = {[
             { Gas: "Methane",  Percent: 3.5 },
 			{ Gas: "Hydrogen",  Percent: 0.5 },
         ]
-    },
-	
-    ]};
+    }
+	];
