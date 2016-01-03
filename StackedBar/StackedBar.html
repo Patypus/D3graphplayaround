@@ -15,8 +15,7 @@
         $(document).ready(function() {
             console.log(data);
 
-            var graph = d3.select("#graph")
-                          .selectAll("div");
+            var graph = d3.select("#graph");
 
             for (var i = 0; i < data.length; i++) {
                 var container = graph.append("div");
@@ -25,13 +24,6 @@
                 CreateSingleStackedBar(container, data[i].Atmosphere);
             }
 
-
-            //d3.select("#graph")
-            //  .selectAll("span")
-            //  .data(data)
-            //  .enter()
-            //  .append("span")
-            //  .text(function (d) { return d.Planet });
               
         });
 
