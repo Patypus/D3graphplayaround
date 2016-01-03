@@ -5,3 +5,46 @@
 .bar-segment {
     display: inline-block;
 }
+
+.bar-segment span {
+    color: white;
+}
+
+.oxygen {
+    background-color: #BCDFEB;
+}
+
+.sodium {
+    background-color: #F7F786;
+}
+
+.hydrogen {
+    background-color: #79F782;
+}
+
+.helium {
+    background-color: #4B8FEB;
+}
+
+.argon {
+    background-color: #F76060;
+}
+
+.methane {
+    background-color: #FAAD55;
+}
+
+.nitrogen {
+    background-color: #FF91B6;
+}
+
+.carbon-dioxide {
+    background-color: #76C76D;
+}
+
+.carbon-monoxide {
+    background-color: #FFEC73;
+}
+.other {
+    background-color: #DEDEDE;
+}

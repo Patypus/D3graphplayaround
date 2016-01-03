@@ -35,7 +35,7 @@
                    .data(atmospheres)
                    .enter()
                    .append("div")
-                   .classed("bar-segment", true)
+                   .attr("class", function (d) { return "bar-segment " + d.DataClass })
                    .append("span")
                    .text(function (d) { return d.Gas + ": " + d.Percent + "%" });
         }
