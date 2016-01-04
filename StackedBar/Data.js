@@ -55,7 +55,7 @@ var data = [
         Atmosphere: [
 			{ Gas: "Hydrogen", DataClass: "hydrogen", Percent: 83 },
             { Gas: "Helium", DataClass: "helium", Percent: 15 },
-			{ Gas: "Methane", DataClass: "methane", Percent: 2.5 },
+			{ Gas: "Methane", DataClass: "methane", Percent: 2 },
         ]
     },
 	{
