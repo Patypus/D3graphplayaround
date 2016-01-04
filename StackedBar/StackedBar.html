@@ -5,6 +5,7 @@
     <script src="Data.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gas-styles.css">
 </head>
 <body>
     <div class="container">
@@ -19,9 +20,12 @@
             var graph = d3.select("#graph");
 
             for (var i = 0; i < data.length; i++) {
-                var container = graph.append("div");
-                container.append("span")
+                var container = graph.append("div")
+                                     .classed("bar-container", true);
+
+                container.append("div")
                          .classed("planet-name", true)
+                         .append("span")
                          .text(data[i].Planet);
 
                 CreateSingleStackedBar(container, data[i].Atmosphere);
