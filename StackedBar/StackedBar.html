@@ -27,13 +27,15 @@
                          .append("span")
                          .text(data[i].Planet);
 
-                var widthExcludingName = $(container[0]).width() - nameOffset;
+                var bar = container.append("div");
+
+                var widthExcludingName = $(bar[0]).width();
 
                 var scale = d3.scale.linear();
                 scale.domain([0, 100])
                 scale.range([0, widthExcludingName]);
 
-                CreateSingleStackedBar(container, data[i].Atmosphere, scale);
+                CreateSingleStackedBar(bar, data[i].Atmosphere, scale);
             }
 
               
@@ -42,15 +44,14 @@
         function CreateSingleStackedBar(element, atmospheres, scale) {
             var containerWidth = $(element[0]).width();
 
+            console.log(atmospheres);
+
             element.selectAll("div")
                    .data(atmospheres)
                    .enter()
                    .append("div")
                    .attr("class", function (d) { return "bar-segment " + d.DataClass })
-                   .style("width", function (d) {
-                       debugger;
-                       return scale(d.Percent) + "px";
-                   })
+                   .style("width", function (d) { return scale(d.Percent) + "px"; })
                    .append("span")
                    .text(function (d) { return d.Gas + ": " + d.Percent + "%" });
         } 
