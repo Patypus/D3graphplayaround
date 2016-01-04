@@ -15,9 +15,8 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function() {
-            console.log(data);
-
             var graph = d3.select("#graph");
+            var nameOffset = 85; //pixel width of the planet-name div with padding.
 
             for (var i = 0; i < data.length; i++) {
                 var container = graph.append("div")
@@ -28,21 +27,33 @@
                          .append("span")
                          .text(data[i].Planet);
 
-                CreateSingleStackedBar(container, data[i].Atmosphere);
+                var widthExcludingName = $(container[0]).width() - nameOffset;
+
+                var scale = d3.scale.linear();
+                scale.domain([0, 100])
+                scale.range([0, widthExcludingName]);
+
+                CreateSingleStackedBar(container, data[i].Atmosphere, scale);
             }
 
               
         });
 
-        function CreateSingleStackedBar(element, atmospheres) {
+        function CreateSingleStackedBar(element, atmospheres, scale) {
+            var containerWidth = $(element[0]).width();
+
             element.selectAll("div")
                    .data(atmospheres)
                    .enter()
                    .append("div")
                    .attr("class", function (d) { return "bar-segment " + d.DataClass })
+                   .style("width", function (d) {
+                       debugger;
+                       return scale(d.Percent) + "px";
+                   })
                    .append("span")
                    .text(function (d) { return d.Gas + ": " + d.Percent + "%" });
-        }
+        } 
 
     </script>
 </body>
