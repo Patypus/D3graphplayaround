@@ -6,17 +6,15 @@
 
 .bar-segment {
     display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .bar-segment span {
     color: white;
+    font-weight: bold;
 }
 
 .bar-container {
     padding: 5px;
-}
-
-.bar-sector-label {
-    
-    font-weight: bold;
 }
