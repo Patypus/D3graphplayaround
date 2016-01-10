@@ -27,9 +27,9 @@
                          .append("span")
                          .text(data[i].Planet);
 
-                var bar = container.append("div");
+                var bar = container.append("div").style("display", "inline-block");
 
-                var widthExcludingName = $(bar[0]).width();
+                var widthExcludingName = $(container[0]).width() - nameOffset;
 
                 var scale = d3.scale.linear();
                 scale.domain([0, 100])
@@ -53,7 +53,8 @@
                    .attr("class", function (d) { return "bar-segment " + d.DataClass })
                    .style("width", function (d) { return scale(d.Percent) + "px"; })
                    .append("span")
-                   .text(function (d) { return d.Gas + ": " + d.Percent + "%" });
+                   .text(function (d) { return d.Percent + "%" });
+            //d.Gas + ": " + //name into tooltip
         } 
 
     </script>
