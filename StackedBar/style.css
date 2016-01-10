@@ -15,3 +15,8 @@
 .bar-container {
     padding: 5px;
 }
+
+.bar-sector-label {
+    
+    font-weight: bold;
+}

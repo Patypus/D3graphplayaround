@@ -53,8 +53,10 @@
                    .attr("class", function (d) { return "bar-segment " + d.DataClass })
                    .style("width", function (d) { return scale(d.Percent) + "px"; })
                    .append("span")
+                   .classed("bar-sector-label", true)
                    .text(function (d) { return d.Percent + "%" });
             //d.Gas + ": " + //name into tooltip
+            //resize with page
         } 
 
     </script>
