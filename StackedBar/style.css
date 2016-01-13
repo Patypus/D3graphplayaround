@@ -18,3 +18,11 @@
 .bar-container {
     padding: 5px;
 }
+
+.tooltip {
+    position: absolute;           
+    text-align: center;           
+    width: 60px;                  
+    height: 28px;                 
+    padding: 2px;           
+}

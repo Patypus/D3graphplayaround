@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="gas-styles.css">
 </head>
 <body>
+    <div class="tooltip" style="opacity: 0"></div>
     <div class="container">
         <div id="graph">
 
         </div>
     </div>
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             var graph = d3.select("#graph");
             var nameOffset = 85; //pixel width of the planet-name div with padding.
 
@@ -32,13 +33,11 @@
                 var widthExcludingName = $(container[0]).width() - nameOffset;
 
                 var scale = d3.scale.linear();
-                scale.domain([0, 100])
-                scale.range([0, widthExcludingName]);
+                scale.domain([0, 100]) //0 to 100 %
+                scale.range([0, widthExcludingName]); //available width for bar to scale by percent
 
                 CreateSingleStackedBar(bar, data[i].Atmosphere, scale);
             }
-
-              
         });
 
         function CreateSingleStackedBar(element, atmospheres, scale) {
@@ -50,13 +49,36 @@
                    .data(atmospheres)
                    .enter()
                    .append("div")
-                   .attr("class", function (d) { return "bar-segment " + d.DataClass })
+                   .attr("class", function (d) { return GetDataClassName(d.DataClass) })
                    .style("width", function (d) { return scale(d.Percent) + "px"; })
+                   .on("mouseover", function (d) { showTooltipForSection(d) })
                    .append("span")
                    .text(function (d) { return d.Percent + "%" });
-            //d.Gas + ": " + //name into tooltip
-            //resize with page
-        } 
+            //resize with page?
+        }
 
+        function showTooltipForSection(data) {
+            var tooltipDiv = d3.select(".tooltip");
+            //colour tooltip for section
+            //tooltipDiv.classed(GetDataClassName(data.DataClass), true);
+            //set tooltip text
+            tooltipDiv.text(data.Gas + ": " + data.Percent + "%");
+            //move tooltip to event location
+            tooltipDiv.style("left", (d3.event.pageX) + "px")
+                      .style("top", (d3.event.pageY) + "px")
+                      .style("opacity", 1);
+            //show the tooltip
+            tooltipDiv.transition()
+                      .duration(200)
+                      .style("opacity", 1);
+        }
+
+        function addHighlightForSection(data) {
+
+        }
+
+        function GetDataClassName(dataClass) {
+            return "bar-segment " + dataClass;
+        }
     </script>
 </body>
