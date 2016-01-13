@@ -21,8 +21,11 @@
 
 .tooltip {
     position: absolute;           
-    text-align: center;           
-    width: 60px;                  
-    height: 28px;                 
-    padding: 2px;           
+    text-align: center;                
+    padding: 3px; 
+    border: 1px solid grey;          
+}
+
+.tooltip span {
+    color: white;
 }
