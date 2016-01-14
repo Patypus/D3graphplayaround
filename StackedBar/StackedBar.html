@@ -43,19 +43,27 @@
         function CreateSingleStackedBar(element, atmospheres, scale) {
             var containerWidth = $(element[0]).width();
 
-            console.log(atmospheres);
-
             element.selectAll("div")
                    .data(atmospheres)
                    .enter()
                    .append("div")
                    .attr("class", function (d) { return GetDataClassName(d.DataClass) })
                    .style("width", function (d) { return scale(d.Percent) + "px"; })
-                   .on("mouseover", function (d) { showTooltipForSection(d) })
-                   .on("mouseout", function (d) { removeToolTipForSelection(d) })
+                   .on("mouseover", function (d) { mouseIn(d) })
+                   .on("mouseout", function (d) { mouseOut(d) })
                    .append("span")
                    .text(function (d) { return d.Percent + "%" });
             //resize with page?
+        }
+
+        function mouseIn(data) {
+            showTooltipForSection(data);
+            addHighlightForSection();
+        }
+
+        function mouseOut(data) {
+            removeToolTipForSelection(data);
+            removeHighlightForSection();
         }
 
         function showTooltipForSection(data) {
@@ -84,9 +92,14 @@
             tooltipDiv.classed(GetDataClassName(data.DataClass), false);
         }
 
-        function addHighlightForSection(data) {
-
+        function addHighlightForSection() {
+            d3.select(d3.event.currentTarget).style("opacity", 0.6);
         }
+
+        function removeHighlightForSection() {
+            d3.select(d3.event.currentTarget).style("opacity", 1);
+        }
+
 
         function GetDataClassName(dataClass) {
             return "bar-segment " + dataClass;
