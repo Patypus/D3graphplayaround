@@ -1,9 +1,14 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+#graph {
+    display: inline-block;
+    max-width: 1000px;
+    min-width: 900px;
+    vertical-align: top;
 }
 
-.container  {
-    padding: 15px;
+#legend { 
+    display: inline-block;
+    vertical-align: top;
+    float: right;
 }
 
 .bar-container {
