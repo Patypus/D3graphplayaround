@@ -1,3 +1,15 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container  {
+    padding: 15px;
+}
+
+.bar-container {
+    padding: 5px;
+}
+
 .planet-name {
     display: inline-block;
     margin-right: 15px;
@@ -14,10 +26,6 @@
 .bar-segment span {
     color: white;
     font-weight: bold;
-}
-
-.bar-container {
-    padding: 5px;
 }
 
 .tooltip {
