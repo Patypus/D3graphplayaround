@@ -11,27 +11,27 @@
     float: right;
 }
 
-.bar-container {
-    padding: 5px;
-}
+    #graph .bar-container {
+        padding: 5px;
+    }
 
-.planet-name {
-    display: inline-block;
-    margin-right: 15px;
-    width: 70px;
-}
+    #graph .bar-container .planet-name {
+        display: inline-block;
+        margin-right: 15px;
+        width: 70px;
+    }
 
-.bar-segment {
-    display: inline-block;
-    height: 30px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
+    #graph .bar-container .bar-segment {
+        display: inline-block;
+        height: 30px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
 
-.bar-segment span {
-    color: white;
-    font-weight: bold;
-}
+    #graph .bar-container .bar-segment span {
+        color: white;
+        font-weight: bold;
+    }
 
 .tooltip {
     position: absolute;           
@@ -40,6 +40,6 @@
     border: 1px solid grey;          
 }
 
-.tooltip span {
-    color: white;
-}
+    .tooltip span {
+        color: white;
+    }
