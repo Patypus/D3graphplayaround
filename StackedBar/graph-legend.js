@@ -1,11 +1,16 @@
 function CreateLegend(targetElement, data) {
     var gasNames = FlattenDataStructureToGetGasNames(data);
 
-    targetElement.selectAll("div")
+    var legendRows = targetElement.selectAll("div")
                  .data(gasNames)
                  .enter()
                  .append("div")
-                 .append("span").text(function (name) { return name });
+                 .classed("legend-row", true)
+				 
+    //Add colour patches				 
+    legendRows.append("div")
+    //Add name label
+    legendRows.append("span").text(function (name) { return name });
 }
 
 function FlattenDataStructureToGetGasNames(data) {
