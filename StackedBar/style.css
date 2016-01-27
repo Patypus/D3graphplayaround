@@ -32,7 +32,15 @@
         color: white;
         font-weight: bold;
     }
+        #legend .legend-row {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
 
+            #legend .legend-row .colour-marker {
+            	border: 1px solid black;
+            }
 .tooltip {
     position: absolute;           
     text-align: center;                
