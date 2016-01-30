@@ -9,6 +9,8 @@ function CreateLegend(targetElement, data) {
 				 
     //Add colour patches				 
     legendRows.append("div")
+              .attr("class", function (d) { return GetDataClassName(d.DataClass) })
+              .classed("colour-marker", true);
     //Add name label
     legendRows.append("span").text(function (gas) { return gas.Gas });
 }
@@ -37,4 +39,8 @@ function gasIsInCollection(collection, gas) {
         }
     }
     return false;
+}
+
+function GetDisplayClassName(dataClass) {
+    return "bar-segment " + dataClass;
 }
