@@ -1,16 +1,16 @@
 function CreateLegend(targetElement, data) {
-    var gasNames = FlattenDataStructureToGetGasNames(data);
+    var uniqueGases = FlattenDataStructureToGetGasNames(data);
 
     var legendRows = targetElement.selectAll("div")
-                 .data(gasNames)
-                 .enter()
-                 .append("div")
-                 .classed("legend-row", true)
+                                  .data(uniqueGases)
+                                  .enter()
+                                  .append("div")
+                                  .classed("legend-row", true)
 				 
     //Add colour patches				 
     legendRows.append("div")
     //Add name label
-    legendRows.append("span").text(function (name) { return name });
+    legendRows.append("span").text(function (gas) { return gas.Gas });
 }
 
 function FlattenDataStructureToGetGasNames(data) {
@@ -20,13 +20,21 @@ function FlattenDataStructureToGetGasNames(data) {
         var gases = data[index].Atmosphere;
 
         for (var gasIndex = 0; gasIndex < gases.length; gasIndex++) {
-            var name = gases[gasIndex].Gas;
-            //Add name if it has not appeared before
-            if (allGases.indexOf(name) < 0) {
-                allGases.push(name);
+            var gas = gases[gasIndex];
+            if (!gasIsInCollection(allGases, gas)) {
+                allGases.push(gas);
             }
         }
     }
 
     return allGases;
+}
+
+function gasIsInCollection(collection, gas) {
+    for (var index = 0; index < collection.length; index++) {
+        if (collection[index].Gas === gas.Gas) {
+            return true;
+        }
+    }
+    return false;
 }
