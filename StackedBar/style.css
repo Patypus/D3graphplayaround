@@ -1,14 +1,16 @@
 #graph {
     display: inline-block;
-    max-width: 1000px;
-    min-width: 900px;
+    max-width: 1100px;
+    min-width: 970px;
     vertical-align: top;
+    padding: 10px;
 }
 
 #legend { 
     display: inline-block;
     vertical-align: top;
     float: right;
+    padding: 10px;
 }
 
     #graph .bar-container {
@@ -35,7 +37,6 @@
     
     #legend .legend-row {
         display: flex;
-        justify-content: center;
         align-items: center;
     }
 
@@ -43,6 +44,7 @@
             border: 1px solid black;
             height: 15px;
             width: 15px;
+            margin-right: 5px;
         }
 
 .tooltip {
