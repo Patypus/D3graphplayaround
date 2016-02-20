@@ -1,0 +1,38 @@
+.oxygen {
+    background-color: #2ECC40;
+}
+
+.sodium {
+    background-color: #e6af4b; 
+}
+
+.hydrogen {
+    background-color: #0074D9;
+}
+
+.helium {
+    background-color: #FA9339;
+}
+
+.argon {
+    background-color: #F76060;
+}
+
+.methane {
+    background-color: #3D9970;
+}
+
+.nitrogen {
+    background-color: #39CCCC;
+}
+
+.carbon-dioxide {
+    background-color: #e05038;
+}
+
+.carbon-monoxide {
+    background-color: #FFEC73;
+}
+.other {
+    background-color: #DEDEDE;
+}
