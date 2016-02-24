@@ -16,16 +16,14 @@ function CreateChart(data, graphElement) {
         
     var arcs = chart.selectAll("g.slice").data(pie).enter().append("svg:g").attr("class", "slice");
     arcs.append("svg:path")
-    .attr("fill", function (d, i) {
-        return '#000';
+    .attr("fill", function (sector, index) {
+        return sector.data.DataColour;
     })
-    .attr("d", function (d) {
-        console.log(arc(d));
-        return arc(d);
+    .attr("d", function (sector) {
+        return arc(sector);
     });
 
     //TODO:
-    // - sort out colours for each gas
     // - allow for each entry in the data collection 
     // - legend on the left
 }
