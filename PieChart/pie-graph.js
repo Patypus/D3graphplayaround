@@ -8,9 +8,6 @@ function CreateChart(dataCollection, graphElement) {
         addTitle(planet, graphElement);
         createSinglePie(planet, graphElement);
     }
-    //TODO:
-    // - allow for each entry in the data collection 
-    // - legend on the left
 }
 
 function addTitle(data, graphElement) {
