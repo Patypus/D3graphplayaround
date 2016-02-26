@@ -17,28 +17,17 @@ function CreateLegend(targetElement, data) {
 
 function FlattenDataStructureToGetGasNames(data) {
     var allGases = new Array();
-    //var allAtmospheres = data.map(function (planet) { return planet.Atmosphere });
-    //var combinedAtmospheres = allAtmospheres.reduce(function (previousCollection, thisCollection) { return previousCollection.concat(thisCollection) }, []);
+    var allAtmospheres = data.map(function (planet) { return planet.Atmosphere });
+    var combinedAtmospheres = allAtmospheres.reduce(function (previousCollection, thisCollection) { return previousCollection.concat(thisCollection) }, []);
     
-    //$.each(combinedAtmospheres, function (i, gasDetails) {
-    //	var alreadyInCollection = $.grep(allGases, function (item) { return gasDetails.Gas === item.Gas });
-   // 	
-    //	if (!alreadyInCollection) {
-   //		allGases.push(gasDetails);
-    //	}
-    //});
+    $.each(combinedAtmospheres, function (i, gasDetails) {
+    	var matchesInCollection = $.grep(allGases, function (item) { return gasDetails.Gas === item.Gas });
+    	
+    	if (matchesInCollection.length === 0) {
+			allGases.push(gasDetails);
+    	}
+    });
     
-    for (var index = 0; index < data.length; index++) {
-        var gases = data[index].Atmosphere;
-
-        for (var gasIndex = 0; gasIndex < gases.length; gasIndex++) {
-            var gas = gases[gasIndex];
-            if (!gasIsInCollection(allGases, gas)) {
-                allGases.push(gas);
-            }
-        }
-    }
-
     return allGases;
 }
 
