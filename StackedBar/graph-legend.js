@@ -1,5 +1,5 @@
 function CreateLegend(targetElement, data) {
-    var uniqueGases = FlattenDataStructureToGetGasNames(data);
+    var uniqueGases = flattenDataStructureToGetGasNames(data);
 
     var legendRows = targetElement.selectAll("div")
                                   .data(uniqueGases)
@@ -15,7 +15,7 @@ function CreateLegend(targetElement, data) {
     legendRows.append("span").text(function (gas) { return gas.Gas });
 }
 
-function FlattenDataStructureToGetGasNames(data) {
+function flattenDataStructureToGetGasNames(data) {
     var allGases = new Array();
     var allAtmospheres = data.map(function (planet) { return planet.Atmosphere });
     var combinedAtmospheres = allAtmospheres.reduce(function (previousCollection, thisCollection) { return previousCollection.concat(thisCollection) }, []);
@@ -29,15 +29,6 @@ function FlattenDataStructureToGetGasNames(data) {
     });
     
     return allGases;
-}
-
-function gasIsInCollection(collection, gas) {
-    for (var index = 0; index < collection.length; index++) {
-        if (collection[index].Gas === gas.Gas) {
-            return true;
-        }
-    }
-    return false;
 }
 
 function GetDisplayClassName(dataClass) {
