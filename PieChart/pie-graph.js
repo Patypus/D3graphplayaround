@@ -5,13 +5,16 @@ var radius = singleHeight / 2;
 function CreateChart(dataCollection, graphElement) {
     for (var index = 0; index < dataCollection.length; index++) {
         var planet = dataCollection[index];
-        addTitle(planet, graphElement);
-        createSinglePie(planet, graphElement);
+        var planetGraph = graphElement.append("div").classed("graph-container", true);
+        addTitle(planet, planetGraph);
+        createSinglePie(planet, planetGraph);
     }
 }
 
 function addTitle(data, graphElement) {
-    graphElement.append("div").text(data.Planet);
+    graphElement.append("div")
+                .classed("title", true)
+                .text(data.Planet);
 }
 
 function createSinglePie(planet, graphElement) {
