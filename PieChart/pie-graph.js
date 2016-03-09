@@ -8,6 +8,7 @@ function CreateChart(dataCollection, graphElement) {
         var planetGraph = graphElement.append("div").classed("graph-container", true);
         addTitle(planet, planetGraph);
         createSinglePie(planet, planetGraph);
+        createLegend(planetGraph, planet.Atmosphere);
     }
 }
 
@@ -34,4 +35,19 @@ function createSinglePie(planet, graphElement) {
     .attr("d", function (sector) {
         return arc(sector);
     });
+}
+
+function createLegend(element, atmospheres) {
+    var legend = element.append("div").classed("legend", true);
+
+    for (var index = 0; index < atmospheres.length; index++) {
+        var gas = atmospheres[index];
+        var row = legend.append("div").classed("legend-row", true);
+
+        row.append("div")
+           .classed("colour-marker", true)
+           .attr("style", "background-color: " + gas.DataColour);
+
+        row.append("span").text(gas.Gas);
+    }
 }

@@ -10,3 +10,23 @@
 .graph-container .title {
     margin-bottom: 10px;
 }
+
+.graph-container .legend {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 40px;
+}
+
+.graph-container .legend .legend-row {
+    height: 15px;
+    display: flex;
+	align-items: center;
+    margin: 5px;
+}
+
+.graph-container .legend .legend-row .colour-marker {
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
