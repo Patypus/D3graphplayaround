@@ -1,13 +1,30 @@
+var graphSide = 300;
+var doughnutWidth = 60;
+
+var radius = Math.min(graphSide, graphSide) / 2;
+var innerRadius = radius - doughnutWidth;
+
 function CreateDoughnutGraph(data, graphElement) {
     var firstItem = data[0];
 
-    var graphSide = 300;
-    var doughnutWidth = 60;
+    for (var index = 0; index < data.length; index++) {
+        var planet = data[index];
 
-    var radius = Math.min(graphSide, graphSide) / 2;
-    var innerRadius = radius - doughnutWidth;
+        var graphContainer = graphElement.append("div").classed("graph-container", true);
+        addTitle(graphContainer, planet);
+        appendSingleDoughnut(graphContainer, planet);
+        createLegend(graphContainer, planet.Atmosphere);
+    }
+}
 
-    var chart = graphElement.append("svg:svg").data([firstItem.Atmosphere])
+function addTitle(graphElement, data) {
+    graphElement.append("div")
+                .classed("title", true)
+                .text(data.Planet);
+}
+
+function appendSingleDoughnut(graphElement, planet) {
+    var chart = graphElement.append("svg:svg").data([planet.Atmosphere])
                             .attr("width", graphSide)
                             .attr("height", graphSide)
                             .append("svg:g")
@@ -24,4 +41,19 @@ function CreateDoughnutGraph(data, graphElement) {
     .attr("d", function (sector) {
         return arc(sector);
     });
+}
+
+function createLegend(element, atmospheres) {
+    var legend = element.append("div").classed("legend", true);
+
+    for (var index = 0; index < atmospheres.length; index++) {
+        var gas = atmospheres[index];
+        var row = legend.append("div").classed("legend-row", true);
+
+        row.append("div")
+           .classed("colour-marker", true)
+           .attr("style", "background-color: " + gas.DataColour);
+
+        row.append("span").text(gas.Gas);
+    }
 }
